@@ -1,3 +1,5 @@
 [deps]
 cartopy = ""
 matplotlib = "3.6.3"
+basemap = ""
+pyresample = ""

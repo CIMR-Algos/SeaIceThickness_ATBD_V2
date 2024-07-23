@@ -21,7 +21,7 @@ chapters:
 - file: baseline_algorithm_definition.md
   title: Baseline Algorithm Definition
   sections:
-  - file: training_data_smos53.ipynb
+  - file: forward_model.ipynb
   - file: CIMR_SIT_retrieval_ATBD.ipynb
 - file: algorithm_input_output_data_definition.md
   title: Algorithm Input and Output Data Definition (IODD)
@@ -29,6 +29,7 @@ chapters:
   title: Algorithm Performance Assessment
   sections:
   - file: Validation.ipynb
+  - file: Testscenes.ipynb
 - file: references.md
   title: References
 - file: annex.md

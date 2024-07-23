@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: CIMR L2 Sea Ice Thickness ATBD v1
-author: Marcus Huntemann and Gunnar Spreen, University of Bremen
+author: Marcus Huntemann and Gunnar Spreen
 logo: logo.jpg
 
 # Force re-execution of notebooks on each build.
@@ -26,6 +26,12 @@ sphinx:
     nb_render_markdown_format: myst
     bibtex_reference_style: author_year
     html_show_copyright: false
+    mermaid_cmd: "../node_modules/.bin/mmdc"
+    latex_elements: 
+      preamble: |
+        \usepackage{etoolbox}
+        \AtBeginEnvironment{figure}{\pretocmd{\hyperlink}{\protect}{}{}} 
+        \renewcommand{\printindex}{}
   extra_extensions:
     - sphinxcontrib.mermaid
       
