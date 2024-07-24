@@ -37,10 +37,4 @@ SMOS
 
 TB
     {term}`Brightness Temperature`
-
-TEC
-    {term}`Total Electron Content`
-
-TOA
-    {term}`Top of Atmosphere`
 ```

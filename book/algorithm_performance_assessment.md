@@ -1,6 +1,6 @@
 # Algorithm Performance Assessment
 
-A first {ref}`Validation` is done, while a more elaborate performance assessment will be done in version 2 of this ATBD.
+A first {ref}`Validation` is performed as well as a {ref}`Testscenes` 
 ## L1 E2ES Demonstration Reference Scenario (Picasso) scene definition
 
 ## Algorithm Performance Metrics (MPEF)

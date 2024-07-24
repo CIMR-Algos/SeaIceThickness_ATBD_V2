@@ -26,11 +26,4 @@ Soil Moisture Active/Passive
 
 Soil Moisture and Ocean Salinity
     The Soil Moisture and Ocean Salinity (SMOS) is a Satellite based L-Band Radiometer launched by ESA in 2009.
-
-Top of Atmosphere
-    The Top of Atmosphere means the top of the atmosphere. The term is used in the context of the brightness temperature measure to indicate that the atmospheric influence is part of the measurement. This term also includes the influence of the ionosphere, see {term}`Total Electron Content`.
-
-Total Electron Content
-    The Total Electron Content is the total number of electrons per unit volume in the path between the satellite and the Earth. It is usually expressed in electrons per square meter. Higher TEC values lead to higher rotation of the polarization plane of the microwave radiation.
-
 ```
