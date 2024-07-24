@@ -1,4 +1,4 @@
-# Algorithm Performance Assessment (Version 2 ATBD)
+# Algorithm Performance Assessment
 
 A first {ref}`Validation` is done, while a more elaborate performance assessment will be done in version 2 of this ATBD.
 ## L1 E2ES Demonstration Reference Scenario (Picasso) scene definition
