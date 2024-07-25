@@ -1,7 +1,9 @@
 # Algorithm Performance Assessment
 
 A first {ref}`Validation` is performed as well as a {ref}`Testscenes` 
+
 ## L1 E2ES Demonstration Reference Scenario (Picasso) scene definition
+We are using three test scenes for the performance evaluation, the two DEVALGO test scenes and the SCEPS polar test scene.
 
 ## Algorithm Performance Metrics (MPEF)
 For SIT we have two major performance metrics which are based on a reference dataset. These are
