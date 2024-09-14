@@ -1,5 +1,12 @@
+env:
+	julia -e 'using Pkg; Pkg.activate("../sit_atbd_env_jl"); Pkg.instantiate()'
+	
 all:
 	JUPYTER_BOOK_BUILD=true jupyter-book build . -v
+
+html:
+	JUPYTER_BOOK_BUILD=true jupyter-book build . --builder html -v
+
 pdf:
 	JUPYTER_BOOK_BUILD=true jupyter-book build . --builder pdfhtml -v
 
