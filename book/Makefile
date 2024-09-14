@@ -1,6 +1,9 @@
 env:
 	julia -e 'using Pkg; Pkg.activate("../sit_atbd_env_jl"); Pkg.instantiate()'
 	
+param:
+	jupyter nbconvert --execute --to notebook --stdout cforward_model.ipynb > /dev/null
+	
 all:
 	JUPYTER_BOOK_BUILD=true jupyter-book build . -v
 
