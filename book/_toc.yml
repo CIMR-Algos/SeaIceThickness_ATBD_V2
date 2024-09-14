@@ -21,7 +21,7 @@ chapters:
 - file: baseline_algorithm_definition.md
   title: Baseline Algorithm Definition
   sections:
-    - file: forward_model.ipynb
+    - file: cforward_model.ipynb
     - file: CIMR_SIT_retrieval_ATBD.ipynb
 - file: algorithm_input_output_data_definition.md
   title: Algorithm Input and Output Data Definition (IODD)
