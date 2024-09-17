@@ -16,7 +16,7 @@ jobs:
     - name: setup base
       run: | 
         apt update
-        apt install -y nodejs sqlite3
+        apt install -y nodejs sqlite3 make wget git
     
     - name: Checkout code
       uses: actions/checkout@v2
@@ -40,7 +40,6 @@ jobs:
     - name: Install Python dependencies
       run: |
         pip install -r requirements.txt
-        apt install -y make wget
 
     - name: Download Natural Earth data
       run: |
