@@ -76,7 +76,7 @@ function lm_retrieval(Ta,Sₑ,Sₐ,xₐ,F)
     xᵢ=copy(xₐ)
     Jᵢ=J(Ta,xᵢ,Sₑ⁻¹,Sₐ⁻¹,xₐ,F)
     γ=1e-5 #set to 0 for gauss newton
-    for i=1:2000 
+    for i=1:50
         Kᵢ=ForwardDiff.jacobian(F,xᵢ)
         Ŝ⁻¹=Sₐ⁻¹+Kᵢ'*Sₑ⁻¹*Kᵢ #eq 5.13
         xᵢ₊₁=xᵢ+((1+γ)*Sₐ⁻¹+Kᵢ'*Sₑ⁻¹*Kᵢ)\(Kᵢ'*Sₑ⁻¹*(Ta-F(xᵢ))-Sₐ⁻¹*(xᵢ-xₐ)) #eq 5.36
