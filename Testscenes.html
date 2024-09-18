@@ -1,0 +1,733 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Evaluation on Simulated test scenes &#8212; CIMR L2 Sea Ice Thickness ATBD v2</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/styles.css?v=3437f865" />
+    <link rel="stylesheet" type="text/css" href="_static/watermark.css?v=dcb9ece5" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Testscenes';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Bibliography" href="references.html" />
+    <link rel="prev" title="Performance evaluation of Sea ice thickness retrieval" href="Validation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="CIMR L2 Sea Ice Thickness ATBD v2 - Home"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="CIMR L2 Sea Ice Thickness ATBD v2 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    ATBD Sea Ice Thickness
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="abstract.html">Abstract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="applicable_ref_docs.html">Applicable and reference documents</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acronyms.html">Acronyms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="definitions.html">Definitions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction_purpose_scope.html">Introduction, purpose and scope</a></li>
+<li class="toctree-l1"><a class="reference internal" href="background_justification_algorithm.html">Background and justification of selected algorithm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="L2_product_definition.html">Level-2 product definition</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="baseline_algorithm_definition.html">Baseline Algorithm Definition</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="cforward_model.html">Forward model</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="CIMR_SIT_retrieval_ATBD.html">Sea Ice Thickness Retrieval Algorithm</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="algorithm_input_output_data_definition.html">Algorithm Input and Output Data Definition (IODD)</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="algorithm_performance_assessment.html">Algorithm Performance Assessment</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Validation.html">Performance evaluation of Sea ice thickness retrieval</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Evaluation on Simulated test scenes</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="references.html">Bibliography</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/CIMR-Algos/SeaIceThickness_ATBD" target="_blank"
+   class="btn btn-sm btn-source-repository-button"
+   title="Source repository"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Testscenes.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Evaluation on Simulated test scenes</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-scene-1-radiometric-scene">Test scene 1 (Radiometric scene)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scene-2-geometric-scene">Scene 2 (Geometric scene)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sceps-polar-scene">SCEPS polar scene</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-reference-data-on-sceps-polar-scene">Comparison to reference data on SCEPS polar scene</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-metrics">Special metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice-thickness-underestimation-against-distance-to-closest-water-pixel">Ice thickness underestimation against distance to closest water pixel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#influence-of-ice-concentration-against-ice-thickness-underestimation">Influence of ice concentration against ice thickness underestimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="evaluation-on-simulated-test-scenes">
+<span id="testscenes"></span><h1>Evaluation on Simulated test scenes<a class="headerlink" href="#evaluation-on-simulated-test-scenes" title="Link to this heading">#</a></h1>
+<p>In the CIMR DEVALGO project, we have developed a set of test scenes to evaluate the performance of the algorithms. The test scenes evaluated here in the SIT ATBD, are the Test scene 1 (radiometric scene), Test scene 2 (geometric scene) and the polar scene from the SCEPS project. The test scenes are simulated scenes with known ground truth, and are used to evaluate the performance of the algorithm. The test scenes are described in the following sections.</p>
+<section id="test-scene-1-radiometric-scene">
+<h2>Test scene 1 (Radiometric scene)<a class="headerlink" href="#test-scene-1-radiometric-scene" title="Link to this heading">#</a></h2>
+<p>The test scene 1 contains nine different surface classes, each with its own set of brightness temperatures. For the generation of these brightness temperatures a simple forward model was used, dependent on the surface type. Technically, the scene can be evaluated with unknown surface properties ignoring the surface classes. However, for an overview, these classes are shown in figure <a class="reference internal" href="#surface-classes-scene1"><span class="std std-numref">Fig. 15</span></a>.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="surface-classes-scene1">
+<img alt="_images/figure_surface_classes_scene1.png" src="_images/figure_surface_classes_scene1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Overview of surface types on Test Scene 1.</span><a class="headerlink" href="#surface-classes-scene1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p><a class="reference internal" href="#sit-comparison-scene1"><span class="std std-numref">Fig. 16</span></a> shows the comparison between the retrieval applied to the brightness temperatures which where input to the satellite simulator on the left. This serves as ground truth for the scene 1 comparison. Here, no footprint or antenna pattern is taken into account and the resulting retrieval looks crisp and sharp.
+In the center, the retrieval on the output of the CIMR satellite simulator is shown. The pattern is smoothed out due to the footprint and antenna pattern. The retrieval is still able to retrieve the main features of the scene. The major difference is seen in the intermediate sea ice concentrations of about 50 % which are present in the stripes on the top and left border of the scene. These are retrieved as very thin ice (barely distinguishable from open water) due to the non-linearity of the retrieval.
+On the right, the difference between the two retrievals is shown. The difference is mainly due to the smoothing of the scene and the non-linearity of the retrieval. While mostly blue (underestimation of ice thickness), there is a slight hint of red (overestimation) at each edge. This is over open water where the footprint still sees some ice which then barely has any influence on the retrieval but only shifts it slightly above the 0 cm ice thickness which is retrieved for open water.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-comparison-scene1">
+<img alt="_images/figure_sit_comparison_scene1.png" src="_images/figure_sit_comparison_scene1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Comparison of SIT retrieval on input to the CIMR satellite simulator (left) and on it’s output (center) together with their differences (right).</span><a class="headerlink" href="#sit-comparison-scene1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Since the CIMR satellite simulator distinguishes between the forward and backward scan, we can seperrate the retrieval into the two directions in <a class="reference internal" href="#sit-directions-scene1"><span class="std std-numref">Fig. 17</span></a>.
+While in the original SIT retrieval (and brightness temperatures) the structures in scene 1 were strait, when selecting only forward or backward scan directions, the structures become curved depending on the the scan direction.
+This was not so much visible in <a class="reference internal" href="#sit-comparison-scene1"><span class="std std-numref">Fig. 16</span></a> when both directions were combined, even though using only  nearest neighbor resampling.
+This might also be due to the fact that in the L1b data which was taken as input, every sample along the scan line was available individually while having a physical overlap.
+In the planned L1b data format, five samples are combined to one, which might affect the impression of the scan line appearance.
+On the right side of <a class="reference internal" href="#sit-directions-scene1"><span class="std std-numref">Fig. 17</span></a> the retrieval uncertainty is shown. As can be seen, high ice thicknesses also yield high uncertainties, even larger than the ice thickness itself. This is due to the extension of the retrieval to the full range of possible ice thicknesses.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-directions-scene1">
+<img alt="_images/figure_sit_directions_scene1.png" src="_images/figure_sit_directions_scene1.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">SIT retrieval on the CIMR satellite simulator output for test scene 1 (radiometric scene).</span><a class="headerlink" href="#sit-directions-scene1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="scene-2-geometric-scene">
+<h2>Scene 2 (Geometric scene)<a class="headerlink" href="#scene-2-geometric-scene" title="Link to this heading">#</a></h2>
+<p>The scene 2 involves some star-like structures and circles which are seen nicely on the left side of <a class="reference internal" href="#sit-comparison-scene2"><span class="std std-numref">Fig. 18</span></a>.
+Only one ice type and ocean type is present in this scene, so the retrieval shows only two different values for the ice thickness with all details and sharp edges. In the center of <a class="reference internal" href="#sit-comparison-scene2"><span class="std std-numref">Fig. 18</span></a> the retrieval on the CIMR satellite simulator output is shown. Here the influence of the footprint size of L-band is strongly influencing the result. The thin star-like structures on the bottom (ice on water background) are barely visible as their area fraction on an L-band footprint is very small. Also the non-linearity of the retrieval causes the strong underestimation of the ice thickness for the lower part of the scene. Likewise, in the upper part of the screen, the star-like structures (water on ice background) are expanding due to the non-linearity of the retrieval. The difference map on the right of <a class="reference internal" href="#sit-comparison-scene2"><span class="std std-numref">Fig. 18</span></a> reflects this underestimation of ice thickness across the scene, again with a slight overestimation at the edges.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-comparison-scene2">
+<img alt="_images/figure_sit_comparison_scene2.png" src="_images/figure_sit_comparison_scene2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Comparison of SIT retrieval on input to the CIMR satellite simulator (left) and on it’s output (center) together with their differences (right).</span><a class="headerlink" href="#sit-comparison-scene2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>Comparing forward and backward scan for scene 2 in <a class="reference internal" href="#sit-directions-scene2"><span class="std std-numref">Fig. 19</span></a>, the star-like structures are are not recognizable in their shape and take a curvy structure in each forward and backward scan. The retrieval uncertainty on the right side of <a class="reference internal" href="#sit-directions-scene2"><span class="std std-numref">Fig. 19</span></a> shows the same behavior as in scene 1, with high ice thicknesses yielding high uncertainties.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-directions-scene2">
+<img alt="_images/figure_sit_directions_scene2.png" src="_images/figure_sit_directions_scene2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">SIT retrieval on the CIMR satellite simulator output for test scene 2 (geometric scene).</span><a class="headerlink" href="#sit-directions-scene2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="sceps-polar-scene">
+<h2>SCEPS polar scene<a class="headerlink" href="#sceps-polar-scene" title="Link to this heading">#</a></h2>
+<p>The SCEPS polar scene is located in the same region as the DEVALGO test scenes 1 and 2 but is based on model data and corresponding simulated brightness temperatures. The retrieval on the input brightness temperatures to the SCEPS CIMR satellite simulator is shown on the left side of <a class="reference internal" href="#sit-comparison-polar"><span class="std std-numref">Fig. 20</span></a>. The structure contains unnatural curves but also resonable ice structures in particular around Franz Josef Land. The retrieval on the output of the CIMR satellite simulator is shown in the center of <a class="reference internal" href="#sit-comparison-polar"><span class="std std-numref">Fig. 20</span></a>. The retrieval is able to retrieve the main features of the scene and in this scene the non-linearity of the retrieval is not that influential as on the other scenes as here, open water borderes thin ice areas, so that the effect of smoothing is reduced. The difference map on the right side of <a class="reference internal" href="#sit-comparison-polar"><span class="std std-numref">Fig. 20</span></a> shows the underestimation of ice thickness in the center of the scene and the overestimation at the edges and regime changes in ice thickness. A slight overestimation is visible in the thicker ice area, which could be due to a slight warm bias in the simulated brightness temperatures output of the CIMR satellite simulator.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-comparison-polar">
+<img alt="_images/figure_sit_comparison_polar.png" src="_images/figure_sit_comparison_polar.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">Comparison of SIT retrieval on input to the CIMR satellite simulator (left) and on it’s output (center) together with their differences (right).</span><a class="headerlink" href="#sit-comparison-polar" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>For completeness, we also compare the retrieval on the forward and backward scans of the the SCEPS polar scene in <a class="reference internal" href="#sit-directions-polar"><span class="std std-numref">Fig. 21</span></a>. In the forward scan, the scanline is alligned with the ice edge which gives an unnatural appearance to the ice edge. This is not that pronounced in the backward scan as the scannline is perpendicular to the ice edge. The retrieval uncertainty on the right side of <a class="reference internal" href="#sit-directions-polar"><span class="std std-numref">Fig. 21</span></a> shows the same behavior as in the other scenes, with high ice thicknesses yielding high uncertainties. In general, also in the SCEPS polar scene, the combined forward and backward scan retrieval (<a class="reference internal" href="#sit-comparison-polar"><span class="std std-numref">Fig. 20</span></a> center) gives a more realistic appearance of the ice edge and more fine grained features than the individual forward or backward scan retrieval.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-directions-polar">
+<img alt="_images/figure_sit_directions_polar.png" src="_images/figure_sit_directions_polar.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">SIT retrieval on the CIMR satellite simulator output for the SCEPS polar scene.</span><a class="headerlink" href="#sit-directions-polar" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<section id="comparison-to-reference-data-on-sceps-polar-scene">
+<h3>Comparison to reference data on SCEPS polar scene<a class="headerlink" href="#comparison-to-reference-data-on-sceps-polar-scene" title="Link to this heading">#</a></h3>
+<p>The reference data for the polar scene is also provided from SCEPS and was used to simulate corresponding brightness temperatures which are input to the retrieval and to the satellite simulator. The reference SIT data is shown in <a class="reference internal" href="#sit-comparison-polar-reference"><span class="std std-numref">Fig. 22</span></a> on the left side. The reference ice thickness seem reasonable with thin ice around Franz Josef Land and thicker sea ice towards the North pole. The retrieval output (same as in <a class="reference internal" href="#sit-comparison-polar"><span class="std std-numref">Fig. 20</span></a>) is shown in the center of <a class="reference internal" href="#sit-comparison-polar-reference"><span class="std std-numref">Fig. 22</span></a> together with the difference on the right. The major difference is seen in the underestimation of ice thickness in the center of the scene at the ice edge, but also the ice at Franz Josef Land is highly overestimated by the retrieval.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Here the reference data set is not an absolute truth. We can only compare the retrieval to the reference data, but we cannot say which one is more accurate or closer to the truth.</p>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-comparison-polar-reference">
+<img alt="_images/figure_sit_comparison_polar_reference.png" src="_images/figure_sit_comparison_polar_reference.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">Comparison of reference SIT on the SCEPS polar scene (left) and the retrieval applied to the SCEPS CIMR simulator (center) together with their differences (right).</span><a class="headerlink" href="#sit-comparison-polar-reference" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+</section>
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading">#</a></h2>
+<p>In <a class="reference internal" href="#performance-table"><span class="std std-numref">Table 2</span></a>, the algorithm performance on input and output is compared by applying the algorithm to both, input and output TBs of the CIMR satellite simulator. Their difference is calculated and the mean and standard deviation of the difference is shown in the table together with the mean SIT of the scene. In addition, for the SCEPS polar scene, the reference SIT is used for the comparison in the last row of the table.
+In scene 1 and scene 2, the difference is negative on average, This is because there is mainly an underestimation of the SIT, as the satellite simulator smoothens the TBs and can create intermediate brightness temperatures. Over open water close to the ice edge, the SIT is overestimated, while over thick ice, close to open water the underestimation of the ice thickness is not tha pronounced.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="pst-scrollable-table-container"><table class="table" id="performance-table">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">Performance comparison on the different scenes for the forward and backward comibined retrieval. The mean and standard deviation of the difference between the retrieved and the true SIT (retrieval on simulator input TBs or reference data set) is given.</span><a class="headerlink" href="#performance-table" title="Link to this table">#</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Scene</p></th>
+<th class="head"><p>mean true SIT [cm]</p></th>
+<th class="head"><p>mean difference [cm]</p></th>
+<th class="head"><p>std difference [cm]</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Scene 1</p></td>
+<td><p>75.05</p></td>
+<td><p>-24.98</p></td>
+<td><p>49.63</p></td>
+</tr>
+<tr class="row-odd"><td><p>Scene 2</p></td>
+<td><p>49.20</p></td>
+<td><p>-25.91</p></td>
+<td><p>48.58</p></td>
+</tr>
+<tr class="row-even"><td><p>Scene P</p></td>
+<td><p>36.19</p></td>
+<td><p>1.57</p></td>
+<td><p>13.28</p></td>
+</tr>
+<tr class="row-odd"><td><p>Scene P (reference)</p></td>
+<td><p>54.46</p></td>
+<td><p>-15.97</p></td>
+<td><p>27.57</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="special-metrics">
+<h2>Special metrics<a class="headerlink" href="#special-metrics" title="Link to this heading">#</a></h2>
+<p>We have two special metrics, one is the evaluation of ice thickness underestimation against the distance to the closest water pixel and the other is the ice concentration within a certain radius against the ice thickness underestimation.</p>
+<section id="ice-thickness-underestimation-against-distance-to-closest-water-pixel">
+<h3>Ice thickness underestimation against distance to closest water pixel<a class="headerlink" href="#ice-thickness-underestimation-against-distance-to-closest-water-pixel" title="Link to this heading">#</a></h3>
+<p>As a special metric we compute the ice the ice thickness underestimation as a function of distance to closest water for the DEVALGO test scene 2 (the geometric scene). The distance to the closest water is calculated for each pixel together with the retrieved ice thickness. For each distance bin, the mean and the 10 and 90 percentile of the ice thickness is calculated and subtracted from the true ice thickness which is the fixed value of 148 cm of for the ice used in the scene. The result is shown in <a class="reference internal" href="#sit-error-distance-scene2"><span class="std std-numref">Fig. 23</span></a> (left). The underestimation of the ice thickness is decreasing with increasing distance to the closest water pixel. A strong drop of the underestimation is visible at a distance above 40 km which is likely related to the CIMR footprint size at L-band. At 60 km distance there is barely an underestimation of ice thickness even for the 90 percentile. The right side of <a class="reference internal" href="#sit-error-distance-scene2"><span class="std std-numref">Fig. 23</span></a> shows the used scene including all used pixels. The borders of 100 km width are removed because of the 0 K brightness temperatures which were used as input outside of the simulated scene, spreading into it due to the footprint size of the simulation.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-error-distance-scene2">
+<img alt="_images/figure_sit_error_distance_scene2.png" src="_images/figure_sit_error_distance_scene2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Left: SIT underestimation for thick ice as a function of distance to the ice edge for scene 2. Right: retrieved SIT on scene2, 100 pixel at the edges are removed.</span><a class="headerlink" href="#sit-error-distance-scene2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="influence-of-ice-concentration-against-ice-thickness-underestimation">
+<span id="concentration-influence"></span><h3>Influence of ice concentration against ice thickness underestimation<a class="headerlink" href="#influence-of-ice-concentration-against-ice-thickness-underestimation" title="Link to this heading">#</a></h3>
+<p>He we compute the ice thickness underestimation as a function of ice concentration within a radius of 15 km and 50 km. To illustrate the ice concentration within a certain radius, we show the ice concentration within a radius of 15 km on the map in <a class="reference internal" href="#ice-concentration-radius-scene2"><span class="std std-numref">Fig. 24</span></a>. The shape of the features is a bit blurry due to the 15 km radius.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="ice-concentration-radius-scene2">
+<img alt="_images/figure_ice_concentration_radius_scene2.png" src="_images/figure_ice_concentration_radius_scene2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Ice concentration within 15 km radius for for scene 2.</span><a class="headerlink" href="#ice-concentration-radius-scene2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+<p>The SIT underestimation as a function of ice concentration for the radius of 15 km and 50 km is shown in <a class="reference internal" href="#sit-error-ice-concentration-scene2"><span class="std std-numref">Fig. 25</span></a>. For small ice concentrations the underestimation for both radii is very high as expected. For 80 % ice concentration there is a strong drop in underestimation for the 50 km radius which occurs only beyond 90 % ice concentration for the 15 km radius. This is due to the fact that the 15 km radius is not enough to account for all the influence of the ice concentration on the SIT retrieval. Also note that the scene geometry influence this kind of analysis, as the shapes of the ice concentration features are not circular.</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<figure class="align-default" id="sit-error-ice-concentration-scene2">
+<img alt="_images/figure_sit_error_ice_concentration_scene2.png" src="_images/figure_sit_error_ice_concentration_scene2.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">SIT underestimation as a function of ice concentration for different radii around the pixel for scene 2.</span><a class="headerlink" href="#sit-error-ice-concentration-scene2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3>Summary<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The results indicate that the underestimation of SIT is significantly influenced by ice concentration and the radius used for analysis, highlighting the importance of high sea ice concentration for an accurate retrieval of SIT. The findings suggest that a larger radius may be necessary to capture the full impact of ice concentration on SIT measurements, particularly in regions with varying ice distribution. The actual sea ice concentration is not part of this processing, so that its influence can not be considered here as SIT uncertainty. This analysis underscores the need for incorporating actual sea ice concentration data in future studies to better understand and quantify the uncertainties associated with SIT retrievals. Additionally, it highlights the potential for improving retrieval algorithms by integrating spatial information about ice concentration and its variability, which could lead to more accurate assessments of sea ice thickness in diverse environmental conditions.</p>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "julia-1.10"
+        },
+        kernelOptions: {
+            name: "julia-1.10",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'julia-1.10'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Validation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Performance evaluation of Sea ice thickness retrieval</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="references.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Bibliography</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-scene-1-radiometric-scene">Test scene 1 (Radiometric scene)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scene-2-geometric-scene">Scene 2 (Geometric scene)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sceps-polar-scene">SCEPS polar scene</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-to-reference-data-on-sceps-polar-scene">Comparison to reference data on SCEPS polar scene</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary">Summary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#special-metrics">Special metrics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ice-thickness-underestimation-against-distance-to-closest-water-pixel">Ice thickness underestimation against distance to closest water pixel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#influence-of-ice-concentration-against-ice-thickness-underestimation">Influence of ice concentration against ice thickness underestimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Summary</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Marcus Huntemann and Gunnar Spreen
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
+This ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493).
+<br>
+ESA is not responsible in any way for the content of this document.
+</p>	
+
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
