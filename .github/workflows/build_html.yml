@@ -13,7 +13,7 @@ jobs:
     container:
       image: ubuntu:latest
       volumes:
-        - /mnt/spaces/Projects/2022_CIMR-DEVALGO:/mnt/spaces/Projects/2022_CIMR-DEVALGO
+        - /mnt/spaces/Projects/2022_CIMR-DEVALGO:/DEVALGO
     steps:
     - name: setup base
       run: | 
@@ -28,6 +28,10 @@ jobs:
       with:
         python-version: '3.12'
 
+    - name: Install Python dependencies
+      run: |
+        pip install -r requirements.txt
+
     - name: Setup Julia
       uses: julia-actions/setup-julia@v2
       with:
@@ -37,11 +41,8 @@ jobs:
       run: | # all PythonCall.jl dependencies are installed already in the global python environment for the jupyter book, so there is no need for a separate environment
         echo "JULIA_CONDAPKG_BACKEND=Null" >> $GITHUB_ENV
         echo "JULIA_PYTHONCALL_EXE=$(which python)" >> $GITHUB_ENV
+        echo "DEVALGO_INPUT_DATA_PATH=/DEVALGO/DATA" >> $GITHUB_ENV
         julia -e 'using Pkg; Pkg.add(["IJulia", "Revise"]);Pkg.build("IJulia");'
-
-    - name: Install Python dependencies
-      run: |
-        pip install -r requirements.txt
 
     - name: Download Natural Earth data
       run: |
@@ -54,7 +55,6 @@ jobs:
     - name: Build HTML
       run: |
         cd book
-        mkdir figures
         make html
         cd ..
 

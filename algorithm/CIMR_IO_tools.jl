@@ -1,3 +1,7 @@
+if "JULIA_PYTHONCALL_EXE" ∉ keys(ENV)
+    ENV["JULIA_PYTHONCALL_EXE"] = @__DIR__() * "/../.venv/bin/python"
+end
+ENV["JULIA_CONDAPKG_BACKEND"] = "Null"
 
 using NCDatasets
 using PythonCall
@@ -216,6 +220,7 @@ function plot_with_caption(figure_instance, caption, label)
     
     # Save the plot to a file
     filename = "figures/figure_$(label).png"
+    mkpath("figures")
     figure_instance.savefig(filename, bbox_inches="tight",dpi=300)
     pyplot.close(figure_instance)
     
