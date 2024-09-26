@@ -48,7 +48,19 @@ The ATBD will be built in the `_build/html` directory.
 For execution as notebooks, the correct path of the python executable must be set using the environment variable `JULIA_PYTHONCALL_EXE`, just like in the build process. It is probably more robust to use a absolute path to the python executable.
 
 ## Script for CIMR L1b to L2 SIT processing
-... to be added
+The command line script `sit_run.jl` can be used to run the retrieval algorithm on a single L1b file. The script takes three arguments:
+
+1. The path to the L1b file
+2. The path to the output file
+3. The grid to use for the output file (ease2_nh, ease2_sh)
+
+For example, to run the retrieval on the test scenes from the `algorithm` folder of the repository, run:
+
+```bash
+julia --project=../sit_atbd_env_jl sit_run.jl /datapath/SCEPS_l1b_sceps_geo_polar_scene_1_unfiltered_tot_minimal_nom_nedt_apc_tot_v2p1.nc /outputpath/out_polar.nc ease2_nh  
+```
+
+the output is a netcdf file in the EASE2 grid of the Northern and Southern Hemispheres at 12.5&nbsp;km grid spacing.
 
 
 ## Additional information
