@@ -67,7 +67,7 @@ jobs:
     - name: run command line example
       run: |
         cd algorithm
-        julia --project=../sit_atbd_env_jl sit_run.jl /mnt/spaces/Projects/2022_CIMR-DEVALGO/DATA/SCEPS/SCEPS_l1b_sceps_geo_polar_scene_1_unfiltered_tot_minimal_nom_nedt_apc_tot_v2p1.nc out_polar.nc ease2_nh
+        julia --project=../sit_atbd_env_jl sit_run.jl ${DEVALGO_INPUT_DATA_PATH}/SCEPS/SCEPS_l1b_sceps_geo_polar_scene_1_unfiltered_tot_minimal_nom_nedt_apc_tot_v2p1.nc out_polar.nc ease2_nh
         ncdump -h out_polar.nc > out_polar.txt
         cd ..
 
