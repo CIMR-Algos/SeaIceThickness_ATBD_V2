@@ -25,10 +25,19 @@ The ouput is in EAES2 grid of the Northern and Southern Hemispheres at 12.5&nbsp
 | Field | Description | Shape/Amount |
 | ----- | ----------- | ------------ |
 | L2 SIT | Sea Ice Thickness | 1440x1440 |
-| SIT uncertainty (4 fields) | Retrieval uncertainties: the total uncertainty as well as the 3 contributions separately. | 1440x1440 |
+| SIT uncertainty | The total Sea Ice Thickness uncertainty | 1440x1440 |
 | Status Flag | A flag indicating status of retrieval, e.g. “nominal”, “over land”, “ice-free”, “50+cm” | 1440x1440 |
 
-Note: over land areas, only the status flags will have a valid value, all the others will have “NaN” (_FillValue). Over ice-free ocean, the SIT will be 0 cm.
+The status flags are defined as follows:
+
+| bit | Description |
+| --- | ----------- |
+| 1 | Nominal |
+| 2 | Over land |
+| 3 | Ice-free |
+| 4 | 50+cm |
+
+Note: no specific land mask is applied to the data, only the status flags will indicate over land areas. Over ice-free ocean, the SIT will be 0 cm.
 
 
 ## Auxiliary data
