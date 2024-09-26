@@ -18,7 +18,7 @@ jobs:
     - name: setup base
       run: | 
         apt update
-        apt install -y nodejs sqlite3 make wget git
+        apt install -y nodejs sqlite3 make wget git netcdf-bin
     
     - name: Checkout code
       uses: actions/checkout@v2
@@ -63,4 +63,17 @@ jobs:
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: book/_build/html
+      
+    - name: run command line example
+      run: |
+        cd algorithm
+        julia --project=../sit_atbd_env_jl sit_run.jl /mnt/spaces/Projects/2022_CIMR-DEVALGO/DATA/SCEPS/SCEPS_l1b_sceps_geo_polar_scene_1_unfiltered_tot_minimal_nom_nedt_apc_tot_v2p1.nc out_polar.nc ease2_nh
+        ncdump -h out_polar.nc > out_polar.txt
+        cd ..
 
+    - name: upload ncdump output artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: ncdump-output
+        path: algorithm/out_polar.txt
+        overwrite: true
