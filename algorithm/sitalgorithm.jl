@@ -16,7 +16,7 @@ cfdd(temp,duration)=1.33*(-(temp+1.8)*duration)^0.58
 fI(x)=I(pI)(x)
 fQ(x)=Q(pQ)(x)
 
-params=YAML.load_file("fit_params.yml")
+params=YAML.load_file(joinpath(@__DIR__() , "../book/fit_params.yml")) 
 const tbh_params,tbv_params,pI,pQ=getindex.(Ref(params),["ph","pv","pI","pQ"])
 
 
