@@ -6,6 +6,11 @@ This repository holds the ATBD (JupyterBook) v2 for a prototype Level-2 Sea Ice 
 
 An HTML build of the ATBD is [online](https://cimr-algos.github.io/SeaIceThickness_ATBD_V2/intro.html).
 
+> [!IMPORTANT]
+> This ATBD was developed in the CIMR DEVALGO project. It is being further developed in the [CIMR L2PAD](https://github.com/CIMR-L2PAD).
+
+More information on the DEVALGO study and other ATBDs it produced is available from [CIMR-Algos](https://github.com/CIMR-Algos).
+
 ## Building the ATBD
 
 To build the ATBD, you will need to have Python installed on your system. You can install the required Python packages by running:
@@ -61,9 +66,3 @@ julia --project=../sit_atbd_env_jl sit_run.jl /datapath/SCEPS_l1b_sceps_geo_pola
 ```
 
 the output is a netcdf file in the EASE2 grid of the Northern and Southern Hemispheres at 12.5&nbsp;km grid spacing.
-
-
-## Additional information
-
-The ATBD was developed in the context of the ESA-funded CIMR DEVALGO study (2022-2024) (contract 4000137493). More information on the DEVALGO study
-and other ATBDs it produced is available from [CIMR-Algos](https://github.com/CIMR-Algos).
