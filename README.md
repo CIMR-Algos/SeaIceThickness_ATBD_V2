@@ -25,6 +25,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 # Install Julia and packages
 curl -fsSL https://install.julialang.org | sh -s -- -y
+julia add 1.10
 
 source ${HOME}/.bashrc # assuming you are using bash, starting a new shell would also work
 
@@ -35,10 +36,10 @@ export JULIA_CONDAPKG_BACKEND=Null
 export JULIA_PYTHONCALL_EXE=../.venv/bin/python
 
 # install julia kernel for jupyter
-julia -e "using Pkg; Pkg.add([\"IJulia\",\"Revise\"));Pkg.build(\"IJulia\")"
+julia +1.10 -e "using Pkg; Pkg.add([\"IJulia\",\"Revise\"]);Pkg.build(\"IJulia\")"
 
 # install julia packages
-julia --project=../sit_atbd_env_jl -e "using Pkg; Pkg.instantiate()"
+julia +1.10 --project=../sit_atbd_env_jl -e "using Pkg; Pkg.instantiate()"
 
 # Build the ATBD
 make all
@@ -62,7 +63,7 @@ The command line script `sit_run.jl` can be used to run the retrieval algorithm 
 For example, to run the retrieval on the test scenes from the `algorithm` folder of the repository, run:
 
 ```bash
-julia --project=../sit_atbd_env_jl sit_run.jl /datapath/SCEPS_l1b_sceps_geo_polar_scene_1_unfiltered_tot_minimal_nom_nedt_apc_tot_v2p1.nc /outputpath/out_polar.nc ease2_nh  
+julia +1.10 --project=../sit_atbd_env_jl sit_run.jl /datapath/SCEPS_l1b_sceps_geo_polar_scene_1_unfiltered_tot_minimal_nom_nedt_apc_tot_v2p1.nc /outputpath/out_polar.nc ease2_nh  
 ```
 
 the output is a netcdf file in the EASE2 grid of the Northern and Southern Hemispheres at 12.5&nbsp;km grid spacing.
